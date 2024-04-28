@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE bookstore [
+<!ELEMENT bookstore (book+)>
+<!ELEMENT book (title,author,year,price)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ATTLIST title lang (en|hindi) "en">
+<!ATTLIST book category (scifi|fiction) "scifi">
+]>
+
+<bookstore>
+    <book category="fiction">
+        <title lang="en">Everyday Italian</title>
+        <author>Giada De</author>
+        <year>2005</year>
+        <price>50</price>
+    </book>
+</bookstore>
