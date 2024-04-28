@@ -1,0 +1,15 @@
+{
+    "List_Of_Hos":[
+        {
+            "HosId" : 1, 
+            "HospitalName": "St. Joseph Hospital",
+            "Latitude": 28.6827379605823,
+            "Longitude": 77.4134466246696
+        }
+
+        {
+            "HosId" : 2,
+            
+        }
+    ]
+}

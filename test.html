@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+</head>
+<body>
+
+    <title>Geolocation API</title>
+  <body>
+    <!-- <h1>Find your Current location</h1> -->
+    <!-- <button onclick="getlocation()">Click me</button> -->
+    <input id="searchTextField" type="text" size="50">
+    <div id="map" style="height: 500px;"></div>
+    
+    
+    <script>
+      if ("geolocation" in navigator) {
+        console.log("geolocation available");
+        navigator.geolocation.getCurrentPosition((position) => {
+          const lat = position.coords.latitude;
+          const long = position.coords.longitude;
+
+          console.log(lat);
+          console.log(long);
+        });
+      } else {
+        console.log("Location Not Available");
+      }
+
+      
+
+
+    </script>
+  </body>
+</html>

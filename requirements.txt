@@ -1,0 +1,7 @@
+Flask
+wtforms
+flask_wtf
+requests
+flask_sqlalchemy
+flask_session
+flask_paginate
