@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedCure Management System</title>
+    <meta content="" name="Description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="#" rel="icon" />
+    <!-- fontaswome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.all.min.css"
+    />
+    <!-- bootstrap -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS Template -->
+    <link href="../static/newlogin.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("form").submit(function () {
+          var error = false;
+          $('input[type="text"], input[type="password"], ').each(function () {
+            if ($.trim($(this).val()) == "") {
+              $(this).addClass("error");
+              $(this).next(".error-message").text("This field is required.");
+              error = true;
+            } else {
+              $(this).removeClass("error");
+              $(this).next(".error-message").text("");
+            }
+          });
+          if (error) {
+            return false;
+          }
+        });
+      });
+    </script>
+    <!-- Main Content -->
+    <div class="container-fluid">
+      <div class="row main-content text-center">
+        <div class="col-md-4 text-center company__info">
+          <span class="company__logo">
+            <h2><span class=""></span></h2>
+          </span>
+          <h4 class="company_title">MedCure</h4>
+        </div>
+        <div class="col-md-8 col-xs-12 col-sm-12 login_form">
+          <div class="container-fluid btnbox">
+            <div class="row col-md-4 text-center loginico">
+              <h2>Log In</h2>
+            </div>
+            <div class="row">
+              <form
+                class="form-group"
+                action="{{url_for('login')}}"
+                method="POST"
+              >
+                {{ form.hidden_tag() }}
+                <div class="row">
+                  {{ form.username.label }} {{
+                  form.username(class="form__input") }}
+                  <span class="error-message"></span>
+                </div>
+                <div class="row">
+                  <!-- <span class="fa fa-lock"></span> -->
+                  {{ form.password.label }} {{
+                  form.password(class="form__input")}}
+                  <i class="bi bi-eye-slash" id="togglePassword"></i>
+                </div>
+                {% if error %}
+                <div class="error-message">{{ error }}</div>
+                {% endif %}
+
+                <script>
+                    const togglePassword = document.querySelector('#togglePassword');
+                    const password = document.querySelector('#password');
+                    togglePassword.addEventListener('click', () => {
+                      const type = password.getAttribute('type') === 'password' ?
+                      'text' : 'password';
+
+                      password.setAttribute('type' , type);
+
+                      this.classList.toggle('bi-eye-slash');
+
+                    });
+                </script>
+
+                <div class="row">
+                  <input type="submit" value="Submit" class="btn" />
+                </div>
+              </form>
+            </div>
+            <div class="row">
+              <p>
+                Don't have an account?
+                <a href="{{ url_for('signup')}}">Register Here</a>
+              </p>
+              <a href="" class="me-4 text-reset">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="" class="me-4 text-reset">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="" class="me-4 text-reset">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="" class="me-4 text-reset">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="" class="me-4 text-reset">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

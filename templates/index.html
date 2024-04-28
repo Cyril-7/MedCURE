@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedCure Management System</title>
+    <meta content="" name="Description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="#" rel="icon" />
+    <!-- fontaswome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Google Fonts -->
+    <!-- bootstrap -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- CSS Template -->
+    <link href="../static/video_consult.css" rel="stylesheet" />
+  
+  </head>
+
+  <body>
+    <nav id="mainnav" class="navbar navbar-expand-lg nav-back fixed-top">
+      <a class="navbar-brand" href="#">MedCure</a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mr-auto navigation-items">
+          <li class="nav-item">
+            <a
+              class="nav-link" 
+              href= "#Doc"
+              >Find Doctors</a
+            >
+          </li>
+          {% if session['logged_in'] %}
+          <li class="nav-item">
+            <a class="nav-link" href="/joininglink">Video Consult</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Video Consult</a>
+          </li>
+          {% endif %}
+
+          {% if session['logged_in'] %}
+          <li class="nav-item">
+            <a class="nav-link" href="/pharmacy">Medicines</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Medicines</a>
+          </li>
+          {% endif %}
+
+          <li class="nav-item"><a class="nav-link" href="#">Lab Tests</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Surgeries</a></li>
+        </ul>
+      </div>
+       
+  
+      <div class="nav-item">
+        {% if session['logged_in'] %}
+        <div class="con">
+        <div class="dropdown">
+          <button class="dropbtn"><span id="boot-icon" class="bi bi-person-circle" style="font-size: 32px; border: none; outline: none;"></span></button>
+          
+          <div class="dropdown-content">
+            <a href="/profile">My Profile</a>
+            <!-- <a href="#">Settings</a> -->
+            <a href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+       {% else %}
+          <a href="{{ url_for('login') }}" style="margin-left: 40px;">Register</a>
+       {% endif %}
+        </div>
+    </nav>
+
+    <div class="container mt-4 mb-4 main_con">
+      <div class="row d-flex justify-content-center">
+        <div class="pad50 col-md-9">
+          <div class="card p-4 mt-3">
+            <h3 class="heading mt-5 text-center">Hi! How can we help You?</h3>
+            <div class="d-flex justify-content-center px-5">
+              <div class="search">
+                <input
+                  type="text"
+                  id="search"
+                  class="search-input"
+                  placeholder="Search..."
+                  name=""
+                />
+                <a href="#" class="search-icon">
+                  <i class="fa fa-search"></i>
+                </a>
+              </div>
+              <div class="dropdown">
+                <ul id="searchHistory"></ul>
+              </div>
+            </div>
+            <div class="row mt-4 g-1 px-4 mb-5">
+              <div class="col-md-2">
+                <div
+                  class="card-inner p-3 d-flex flex-column align-items-center"
+                >
+                  <div class="text-center mg-text">
+                    
+                    <span class="mg-text fa-solid fa-file-invoice ">Health</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="card-inner p-3 d-flex flex-column align-items-center"
+                >
+                  <img src="" width="50" />
+                  <div class="text-center mg-text">
+                    <span class="mg-text">Medicines</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="card-inner p-3 d-flex flex-column align-items-center"
+                >
+                  <img src="" width="50" />
+                  <div class="text-center mg-text">
+                    <span class="mg-text">Doctors</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="card-inner p-3 d-flex flex-column align-items-center"
+                >
+                  <img src="" width="50" />
+                  <div class="text-center mg-text">
+                    <span class="mg-text">Lab Tests</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="card-inner p-3 d-flex flex-column align-items-center"
+                >
+                  <img src="" width="50" />
+                  <div class="text-center mg-text">
+                    <span class="mg-text">Video Consult</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div
+                  class="card-inner p-3 d-flex flex-column align-items-center"
+                >
+                  <img src="" width="50" />
+                  <div class="text-center mg-text">
+                    <span class="mg-text">Surgeries</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="content" class="container">
+      <div class="block">
+        <h1 class="d-flex justify-content-center h-100">
+          Symptoms Of Covid ? incomplete
+        </h1>
+        <div class="d-flex justify-content-center h-100 gap">
+          <a class="button btn-extra" data-abc="true"
+            ><i class=""></i><span><em>Book Now</em></span></a
+          >
+          <a class="button btn-extra yellow" data-abc="true"
+            ><i class=""></i><span><em>Book Now</em></span></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="doctors" class="doctors">
+      <div class="container">
+        <div class="doctors-section-title">
+          <h2 id="Doc">Doctors</h2>
+        </div>
+
+        <div class="container mb-5 mt-4">
+          <div class="row scroll-container">
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center imgclass">
+                  <img
+                    src="../static/doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                    alt="Image of doctor"
+                  />
+                  <h5>Anand</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Dentist</span>
+                    <span class="text1">He is a Dentist working in abc </span>
+                  </div>
+                </div>
+                <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                  <a
+                    class="text-uppercase"
+                    href="www.google.com"
+                    style="color: white"
+                    >Book Appointment</a
+                  >
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center imgclass">
+                  <img
+                    src="../static/doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                    alt="Image of doctor"
+                  />
+                  <h5>Cyril T Jhonson</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Dentist</span>
+                    <span class="text1">He is a Dentist working in abc </span>
+                  </div>
+                </div>
+                <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                  <a
+                    class="text-uppercase"
+                    href="www.google.com"
+                    style="color: white"
+                    >Book Appointment</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center imgclass">
+                  <img
+                    src="../static/doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                    alt="Image of doctor"
+                  />
+                  <h5>Cyril T Jhonson</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Dentist</span>
+                    <span class="text1">He is a Dentist working in abc </span>
+                  </div>
+                </div>
+                <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                  <a
+                    class="text-uppercase"
+                    href="www.google.com"
+                    style="color: white"
+                    >Book Appointment</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3 cardclass">
+                <div class="product-1 align-items-center p-2 text-center imgclass">
+                  <img
+                    src="../static/doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                    alt="Image of doctor"
+                  />
+                  <h5>Cyril T Jhonson</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Dentist</span>
+                    <span class="text1">He is a Dentist working in abc </span>
+                  </div>
+                </div>
+                <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                  <a
+                    class="text-uppercase"
+                    href="www.google.com"
+                    style="color: white"
+                    >Book Appointment</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 scroll-item">
+          <div class="card mt-3">
+            <div class="product-1 align-items-center p-2 text-center imgclass">
+              <img
+                src="../static/doctor sample image.jpg"
+                class="rounded mb-2"
+                width="160"
+                alt="Image of doctor"
+              />
+              <h5>Cyril T Jhonson</h5>
+              <div class="mt-3 info">
+                <span class="text1 d-block">Dentist</span>
+                <span class="text1">He is a Dentist working in abc </span>
+              </div>
+            </div>
+            <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+              <a
+                class="text-uppercase"
+                href="www.google.com"
+                style="color: white"
+                >Book Appointment</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 scroll-item">
+          <div class="card mt-3">
+            <div class="product-1 align-items-center p-2 text-center imgclass">
+              <img
+                src="../static/doctor sample image.jpg"
+                class="rounded mb-2"
+                width="160"
+                alt="Image of doctor"
+              />
+              <h5>Cyril T Jhonson</h5>
+              <div class="mt-3 info">
+                <span class="text1 d-block">Dentist</span>
+                <span class="text1">He is a Dentist working in abc </span>
+              </div>
+            </div>
+            <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+              <a
+                class="text-uppercase"
+                href="www.google.com"
+                style="color: white"
+                >Book Appointment</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="container mb-5 mt-4">
+          <div class="scroll-wrapper">
+            <div class="row scroll-container">
+              <div class="col-md-4 scroll-item">
+                <div class="card mt-3">
+                  <div class="product-1 align-items-center p-2 text-center">
+                    <img
+                      src="asset\img\doctor sample image.jpg"
+                      class="rounded mb-2"
+                      width="160"
+                    />
+                    <h5>Anand</h5>
+                    <div class="mt-3 info">
+                      <span class="text1 d-block">Dentist</span>
+                      <span class="text1">He is a Dentist working in abc </span>
+                    </div>
+                  </div>
+                  <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                    <a
+                      class="text-uppercase"
+                      href="www.google.com"
+                      style="color: white"
+                      >Book Appointment</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 scroll-item">
+                <div class="card mt-3">
+                  <div class="product-1 align-items-center p-2 text-center">
+                    <img
+                      src="asset\img\doctor sample image.jpg"
+                      class="rounded mb-2"
+                      width="160"
+                    />
+                    <h5>Cyril T Jhonson</h5>
+                    <div class="mt-3 info">
+                      <span class="text1 d-block">Dentist</span>
+                      <span class="text1">He is a Dentist working in abc </span>
+                    </div>
+                  </div>
+                  <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                    <a
+                      class="text-uppercase"
+                      href="www.google.com"
+                      style="color: white"
+                      >Book Appointment</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 scroll-item">
+                <div class="card mt-3">
+                  <div class="product-1 align-items-center p-2 text-center">
+                    <img
+                      src="asset\img\doctor sample image.jpg"
+                      class="rounded mb-2"
+                      width="160"
+                    />
+                    <h5>Cyril T Jhonson</h5>
+                    <div class="mt-3 info">
+                      <span class="text1 d-block">Dentist</span>
+                      <span class="text1">He is a Dentist working in abc </span>
+                    </div>
+                  </div>
+                  <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                    <a
+                      class="text-uppercase"
+                      href="www.google.com"
+                      style="color: white"
+                      >Book Appointment</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 scroll-item">
+                <div class="card mt-3">
+                  <div class="product-1 align-items-center p-2 text-center">
+                    <img
+                      src="asset\img\doctor sample image.jpg"
+                      class="rounded mb-2"
+                      width="160"
+                    />
+                    <h5>Cyril T Jhonson</h5>
+                    <div class="mt-3 info">
+                      <span class="text1 d-block">Dentist</span>
+                      <span class="text1">He is a Dentist working in abc </span>
+                    </div>
+                  </div>
+                  <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                    <a
+                      class="text-uppercase"
+                      href="www.google.com"
+                      style="color: white"
+                      >Book Appointment</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 scroll-item">
+                <div class="card mt-3">
+                  <div class="product-1 align-items-center p-2 text-center">
+                    <img
+                      src="asset\img\doctor sample image.jpg"
+                      class="rounded mb-2"
+                      width="160"
+                    />
+                    <h5>Cyril T Jhonson</h5>
+                    <div class="mt-3 info">
+                      <span class="text1 d-block">Dentist</span>
+                      <span class="text1">He is a Dentist working in abc </span>
+                    </div>
+                  </div>
+                  <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                    <a
+                      class="text-uppercase"
+                      href="www.google.com"
+                      style="color: white"
+                      >Book Appointment</a
+                    >
+                  </div>
+                </div>
+              </div> -->
+        <!-- <div class="container mb-5 mt-4">
+          <div class="row scroll-container">
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center">
+                  <img
+                    src="asset\img\doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                  />
+                  <h5>Anand</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Dentist</span>
+                    <span class="text1">He is a Dentist working in abc </span>
+                  </div>
+                </div>
+                <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                  <a
+                    class="text-uppercase"
+                    href="www.google.com"
+                    style="color: white"
+                    >Book Appointment</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center">
+                  <img
+                    src="asset\img\doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                  />
+                  <h5>Cyril T Jhonson</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Dentist</span>
+                    <span class="text1">He is a Dentist working in abc </span>
+                  </div>
+                </div>
+                <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                  <a
+                    class="text-uppercase"
+                    href="www.google.com"
+                    style="color: white"
+                    >Book Appointment</a
+                  >
+                </div>
+              </div>
+            </div> -->
+
+        <!-- <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center">
+                  <img
+                    src="asset\img\doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                  />
+                  <h5>Cyril T Jhonson</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Dentist</span>
+                    <span class="text1">He is a Dentist working in abc </span>
+                  </div>
+                </div>
+                <div class="p-3 bg-danger text-center text-white mt-3 cursor">
+                  <a
+                    class="text-uppercase"
+                    href="www.google.com"
+                    style="color: white"
+                    >Book Appointment</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center">
+                  <img
+                    src="asset\img\doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                  />
+                  <h5>Gokul</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">General Physician</span>
+                    <span class="text1"
+                      >He is having a speciality General Physician
+                    </span>
+                  </div>
+                </div>
+                <div class="watch p-3 text-center text-white mt-3 cursor">
+                  <span class="text-uppercase">Book Appointment</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 scroll-item">
+              <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center">
+                  <img
+                    src="asset\img\doctor sample image.jpg"
+                    class="rounded mb-2"
+                    width="160"
+                  />
+                  <h5>Abin</h5>
+                  <div class="mt-3 info">
+                    <span class="text1 d-block">Ayurveda</span>
+                    <span class="text1">He is a Ayurveda speciality </span>
+                  </div>
+                </div>
+                <div class="tshirt p-3 text-center text-white mt-3 cursor">
+                  <span class="text-uppercase">Book Appointment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <div class="newsblog">
+      <div class="newscard">
+        <div class="newscard__header">
+          <img
+            src="asset/img/balanced-diet-feature.jpg"
+            alt="newscard__image"
+            class="newscard__image"
+            width="600"
+          />
+        </div>
+        <div class="newscard__body">
+          <h4>Eat a balanced diet</h4>
+          <p>
+            Eating a diet rich in fruits, vegetables, whole grains, lean
+            proteins, and healthy fats can help you maintain a healthy weight,
+            reduce your risk of chronic diseases, and improve your overall
+            health.
+          </p>
+        </div>
+        <div class="newscard__footer"></div>
+      </div>
+      <div class="newscard">
+        <div class="newscard__header">
+          <img
+            src="asset/img/stress.jpg"
+            alt="newscard__image"
+            class="newscard__image secondimg"
+            width="600"
+          />
+        </div>
+        <div class="newscard__body">
+          <h4>Manage stress</h4>
+          <p>
+            Chronic stress can take a toll on your physical and mental health.
+            Try to find healthy ways to manage stress, such as exercise,
+            meditation, or spending time with loved ones.
+          </p>
+        </div>
+        <div class="newscard__footer"></div>
+      </div>
+      <div class="newscard">
+        <div class="newscard__header">
+          <img
+            src="asset/img/sleep.jpg"
+            alt="newscard__image"
+            class="newscard__image"
+            width="600"
+          />
+        </div>
+        <div class="newscard__body">
+          <h4>Get enough sleep</h4>
+          <p>
+            Getting enough restful sleep is important for overall health and
+            wellbeing. Aim for 7-8 hours of sleep per night.
+          </p>
+        </div>
+        <div class="newscard__footer"></div>
+      </div>
+    </div>
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>MedCure</h6>
+            <p class="text-justify">
+              <i>Hospitial Managment System</i>
+            </p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="#">Find Doctors</a></li>
+              <li><a href="#">Video Consult</a></li>
+              <li><a href="/pharmacy">Medicines</a></li>
+              <li><a href="#">Lab Tests</a></li>
+              <li><a href="#">Surgeries</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">
+              Copyright &copy; 2023 All Rights Reserved by
+              <a href="#">MedCure</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li>
+                <a class="facebook" href="#"><i class="#"></i></a>
+              </li>
+              <li>
+                <a class="twitter" href="#"><i class="#"></i></a>
+              </li>
+              <li>
+                <a class="dribbble" href="#"><i class="#"></i></a>
+              </li>
+              <li>
+                <a class="linkedin" href="#"><i class="#"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../static/testse.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  </body>
+</html>
