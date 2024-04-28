@@ -1,0 +1,101 @@
+#mainnav {
+  height: 70px;
+  padding-left: 30px;
+}
+
+#mainnav .nav-item {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3E54AC;
+  letter-spacing: normal;
+  word-spacing: 2px;
+}
+
+.nav-back {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  height: 150px;
+  width: auto;
+}
+
+.navbar-brand img {
+  height: 100%;
+  width: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1);
+}
+
+.nav-link {
+  color: #2b2b2b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: semi-expanded;
+  padding: 0 16px;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #6c63ff;
+}
+.cardelement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card-deatils-doctor {
+    background-color: white;
+    border-radius: 10px;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    height: 400px;
+    width: 700px;
+  }
+  
+  .card-deatils-doctor-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .right-content {
+    width: 50%;
+  }
+  
+  .card-deatils-doctor-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .card-deatils-doctor-text {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10
+  }
+  

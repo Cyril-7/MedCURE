@@ -1,0 +1,121 @@
+/* #mainnav {
+  height: 70px;
+  padding-left: 30px;
+}
+
+#mainnav .nav-item {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3E54AC;
+  letter-spacing: normal;
+  word-spacing: 2px;
+}
+
+.nav-back {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  height: 150px;
+  width: auto;
+}
+
+.navbar-brand img {
+  height: 100%;
+  width: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1);
+}
+
+.nav-link {
+  color: #2b2b2b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: semi-expanded;
+  padding: 0 16px;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #6c63ff;
+} */
+
+.doctors {
+    padding-top: 40px;
+  }
+
+  .doctors-section-title {
+    text-align: center;
+    font-size: larger;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 30px;
+  }
+
+  .doctors-card {
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .doctors-card img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .doctors-card h5 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .doctors-card .info {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
+
+  .doctors-card .contact {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .doctors-card .contact span {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .doctors-card .contact span:first-of-type {
+    color: #007bff;
+  }
+
+  .doctors-card .contact span:last-of-type {
+    color: #28a745;
+  }
+
+  @media screen and (min-width: 768px) {
+    .doctors-card {
+      width: calc(100% / 3 - 20px);
+      margin-right: 20px;
+    }
+    
+    .doctors-card:nth-of-type(3n) {
+      margin-right: 0;
+  }
+}

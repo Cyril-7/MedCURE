@@ -1,0 +1,157 @@
+  body {
+    /* background: linear-gradient(to right, #f7182790,rgba(255, 5, 5, 0.821)); */
+    background: linear-gradient(to right, #18c3f7,#a4beff);   /* #00ffe5, #00ffff, #00c8ff */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  }
+  
+.heading{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    text-decoration: double;
+    font-size: xxx-large;
+  }
+
+  
+  
+  .shape1,.shape2,.shape3,.shape4,.shape5,.shape6,.shape7,.shape8 {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 251, 251);
+    border-radius: 100%;
+    transition: width 0.5s;
+    margin-left: 50px;
+    margin-right: 50px; 
+    margin-bottom: 50px;
+  }
+
+  img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+  }
+
+  table{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-left: 500px;
+    padding-top: 60px;
+    color: black;
+    font-size:large;
+    font-weight: bolder;
+  }
+
+  td {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border: solid 2px rgb(152, 11, 11);
+    border-style: double;
+  }
+
+  .shape1 table{
+    display: none;
+  }
+
+  .shape1:hover img{
+    display: none;
+  }
+
+  .shape1:hover table{
+    display: flex;
+  }
+
+  .shape2 table{
+    display: none;
+  }
+
+  .shape2:hover img{
+    display: none;
+  }
+
+  .shape2:hover table{
+    display: flex;
+  }
+
+  .shape3 table{
+    display: none;
+  }
+
+  .shape3:hover img{
+    display: none;
+  }
+
+  .shape3:hover table{
+    display: flex;
+  }
+
+  .shape4 table{
+    display: none;
+  }
+
+  .shape4:hover img{
+    display: none;
+  }
+
+  .shape4:hover table{
+    display: flex;
+  }
+
+  .shape5 table{
+    display: none;
+  }
+
+  .shape5:hover img{
+    display: none;
+  }
+
+  .shape5:hover table{
+    display: flex;
+  }
+
+  .shape6 table{
+    display: none;
+  }
+
+  .shape6:hover img{
+    display: none;
+  }
+
+  .shape6:hover table{
+    display: flex;
+  }
+
+  .shape7 table{
+    display: none;
+  }
+
+  .shape7:hover img{
+    display: none;
+  }
+
+  .shape7:hover table{
+    display: flex;
+  }
+
+  .shape8 table{
+    display: none;
+  }
+
+  .shape8:hover img{
+    display: none;
+  }
+
+  .shape8:hover table{
+    display: flex;
+  }
+
+  .shape1:hover,.shape2:hover,.shape3:hover,.shape4:hover,.shape5:hover,.shape6:hover,.shape7:hover,.shape8:hover {
+    width: 1400px;
+    border-radius: 30px;
+    margin-right: 50px;
+  }
+
+  .sos-item-image{
+    height: 35px;
+  }

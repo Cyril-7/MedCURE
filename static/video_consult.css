@@ -1,0 +1,51 @@
+.video-consult-boxes {
+    padding-top: 120px;
+  }
+  
+  .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+  }
+  
+  .consult-box {
+    border-radius: 20px;
+  }
+  
+  .column {
+      flex: 1;
+      padding: 0 10px;
+  }
+  
+  .video-box {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+  }
+  
+  .video-box img {
+      height: 250px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+  }
+  
+  .video-box h3 {
+      margin-top: 0;
+  }
+  
+  .video-box p {
+      margin-bottom: 10px;
+  }
+  
+  .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0066cc;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+  }
+  
+  .btn:hover {
+      background-color: #003399;
+  }

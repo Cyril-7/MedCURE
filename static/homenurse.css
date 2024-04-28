@@ -1,0 +1,146 @@
+html {
+  background-color: #eaeaea;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  /* Sets up the Base 10 stuff */
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 50px auto;
+}
+
+.row {
+  padding: 0 15px;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+.room {
+  width: 100%;
+  height: auto;
+  display: block;
+  float: left;
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+  -moz-box-shadow: 1px 1px 1px 1px #ccc;
+  box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+.room_img {
+  width: 40%;
+  float: left;
+  border-radius: 10px 0px 0px 0px;
+  max-height: 280px;
+  overflow: hidden;
+}
+.room_img img {
+  height: 100%;
+  max-height: 280px;
+  opacity: 0.69;
+}
+
+.room_information {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 60%;
+  padding: 0px 20px 20px 20px;
+  float: left;
+  color: #495559;
+  font-size: 15px;
+  font-size: 1.5rem;
+}
+.room_information .room_information--heading {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  font-size: 5rem;
+  margin: 0.4em 0em;
+}
+.room_information p {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+.room_information .room_information--moreinfo-btn {
+  color: #ccc;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 13px;
+  font-size: 1.3rem;
+}
+.room_information .room_information--moreinfo-btn:hover {
+  text-decoration: underline;
+}
+
+.room_moreinfo {
+  padding: 20px;
+  width: 100%;
+  float: left;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+.room_features {
+  float: left;
+  width: 100%;
+  align-items: center;
+  border-top: 1px solid #e5e5e5;
+  color: #e5e5e5;
+}
+
+.room_features .room_features--book-btn {
+  float: left;
+  display: block;
+  line-height: 60px;
+  width: 100%;
+  text-align: center;
+  color: #5fb2cf;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-size: 2rem;
+}
+.room_features .room_features--book-btn:hover {
+  font-size: 21.1px;
+  font-size: 2.11rem;
+}
+
+@media all and (max-width: 740px) {
+  .room_img {
+    width: 100%;
+  }
+  .room_img img {
+    width: 100%;
+  }
+
+  .room_information {
+    width: 100%;
+    clear: both;
+  }
+  .room_information .room_information--heading {
+    font-size: 30px;
+    font-size: 3rem;
+  }
+
+  .room_features .room_features--book-btn {
+    width: 100%;
+    align-items: center;
+  }
+}
